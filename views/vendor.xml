@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="vendor_new" model="ir.ui.view">
+        <field name="name">vendor_new</field>
+        <field name="model">vendor.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        <field name="selected_all" widget="boolean_toggle"/>
+                    </group>
+                    <field name="vendors_ids">
+                        <tree editable="1">
+                            <field name="is_selected"/>
+                            <field name="p"/>
+                            <field name="d"/>
+                            <field name="q"/>
+                            <field name="u"/>
+                            <field name="s"/>
+                            <field name="sale_order_line_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button name="to_quot" string="To Quotation" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="vendor_new_tree" model="ir.ui.view">
+        <field name="name">vendor.new.tree</field>
+        <field name="model">vendor.wizard</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="name != 'Mushraf'">
+                <field name="name"/>
+                <field name="vendors_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="vendor_new_action" model="ir.actions.act_window">
+        <field name="name">Vendor Action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vendor.wizard</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

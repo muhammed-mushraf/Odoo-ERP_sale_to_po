@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    button in sale-->
+    <record id="sale_inherit" model="ir.ui.view">
+        <field name="name">sale.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="button_custom" string="Button" type="object" class="btn-primary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    button to vendor records -->
+    <record id="sale_inh" model="ir.ui.view">
+        <field name="name">vendor.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <button name="vendor_rec" string="Vendors Rec" type="object" class="oe_stat_button" icon="fa-eye">
+                    <field string="Records" name="order_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <!--    sale.order.line tree view-->
+    <record model="ir.ui.view" id="sale_order_view_inherit">
+        <field name="name">sale.order.view.inherit1</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="x_field" invisible="1"/>
+                <field name="sale_sequence"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="before">
+                <field name="sale_sn"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="after">
+                <field name="amount"/>
+            </xpath>
+        </field>
+    </record>
+    <!--    tree view inherit to change color-->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-success">x_field == 'approved'</attribute>
+                <attribute name="decoration-danger">x_field == 'not_approved'</attribute>
+            </xpath>
+        </field>
+    </record>
+    <!--    adding sequence field in purchase order line-->
+    <record model="ir.ui.view" id="purchase_order_view_inherit">
+        <field name="name">purchase.order.view.inherit1</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="purchase_sequence"/>
+            </xpath>
+        </field>
+    </record>
+    <!--    si number in inventory tree-->
+    <record model="ir.ui.view" id="inventory_view_inherit">
+        <field name="name">inventory.view.inherit1</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="before">
+                <field name="inventory_sn"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

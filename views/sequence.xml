@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    purchase sequence-->
+    <record id="sequence_purchase" model="ir.sequence">
+        <field name="name">PurchaseSequence</field>
+        <field name="code">purchase.order.line.sequence</field>
+        <field name="prefix">POL</field>
+        <field name="padding">3</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+</odoo>

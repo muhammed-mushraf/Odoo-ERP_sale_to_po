@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vendor_wizard,access.vendor.wizard,model_vendor_wizard,,1,1,1,1
+access_vendor_order,access.vendor.order,model_vendor_order,,1,1,1,1

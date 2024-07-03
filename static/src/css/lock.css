@@ -1,0 +1,11 @@
+/* Add a style to exclude the systray button from the blur effect */
+body:not(.page-locked) .toggle-icon {
+  filter: blur(0);
+  pointer-events: auto;
+}
+
+.oe_cancel_button {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+}
