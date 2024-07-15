@@ -147,11 +147,6 @@ class SaleOrderInherit(models.Model):
     sale_sn = fields.Integer(string='S.N')
     amount = fields.Monetary(string="Amount")
 
-    @api.onchange('amount')
-    def onchange_amount(self):
-        if self.amount:
-            self.discount = (self.amount / (self.price_unit * self.product_uom_qty)) * 100.0 if (
-                    self.price_unit * self.product_uom_qty) else 0.0
 
 
 class Inventory(models.Model):

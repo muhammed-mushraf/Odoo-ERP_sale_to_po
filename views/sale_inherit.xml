@@ -38,9 +38,7 @@
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="before">
                 <field name="sale_sn"/>
             </xpath>
-            <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="after">
-                <field name="amount"/>
-            </xpath>
+
         </field>
     </record>
     <!--    tree view inherit to change color-->
@@ -75,6 +73,7 @@
             <xpath expr="//field[@name='product_id']" position="before">
                 <field name="inventory_sn"/>
             </xpath>
+
         </field>
     </record>
 </odoo>
