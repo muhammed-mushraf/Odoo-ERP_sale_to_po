@@ -1,3 +1,5 @@
+demo video: https://mushraf-m.github.io/dgz_sale_video/
+
 Sales and Purchase Order Integration.
 This module extends the default sale.order and purchase.order models to integrate and streamline the workflow between sales and purchase orders. The functionality includes selecting vendors for sale order lines and creating corresponding purchase orders with specific sequences. Additionally, it provides an interface to view related purchase orders for a sale order.
 
