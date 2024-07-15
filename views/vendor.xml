@@ -8,13 +8,8 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                    </group>
-                </sheet>
-                <sheet>
-                    <group>
                         <field name="selected_all" widget="boolean_toggle"/>
-                    </group>
-                    <field name="vendors_ids">
+                        <field name="vendors_ids">
                         <tree editable="1">
                             <field name="is_selected"/>
                             <field name="p"/>
@@ -25,6 +20,7 @@
                             <field name="sale_order_line_id" invisible="1"/>
                         </tree>
                     </field>
+                    </group>
                 </sheet>
                 <footer>
                     <button name="to_quot" string="To Quotation" type="object" class="btn-primary"/>
@@ -36,7 +32,7 @@
         <field name="name">vendor.new.tree</field>
         <field name="model">vendor.wizard</field>
         <field name="arch" type="xml">
-            <tree decoration-info="name != 'Mushraf'">
+            <tree>
                 <field name="name"/>
                 <field name="vendors_ids"/>
             </tree>
